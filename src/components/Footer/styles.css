@@ -1,0 +1,25 @@
+
+.typed-text {
+  color: #28c4a4;
+  font-family: var(--redressed);
+}
+
+.cursor {
+  display: inline-block;
+  width: 3px;
+  margin-left: 4px;
+  background: #28c4a4;
+}
+
+.cursor.blink {
+  animation: blink 0.8s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%, 100% {
+    background: #28c4a4;
+  }
+  40%, 50% {
+    background: transparent;
+  }
+}
