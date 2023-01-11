@@ -11,15 +11,14 @@ margin-bottom: 0;
 `
 export const Heading2 = styled(motion.h2)`
 font-family: var(--fontbook);
-font-size: clamp(7vw, 8.5vw, 9vw);
+font-size: clamp(4vw, 7.5vw, 9vw);
 color: var(--green);
 z-index: 10;
 margin-bottom: 0;
-/* align-self:flex-end;/ */
 margin-top:2rem;
 position:relative;
 display:flex;
-
+white-space:nowrap;
 align-items:center;
 
 

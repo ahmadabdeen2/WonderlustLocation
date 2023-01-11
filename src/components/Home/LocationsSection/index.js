@@ -11,6 +11,7 @@ import { CursorContext } from '../../CustomCursor/CursorManager';
 
 const Locations = [
     {
+        id:'riyadh1',
         name: "Riyadh",
         image: riyadh,
         description: "Saudi Arabia's capital and largest city",
@@ -18,6 +19,7 @@ const Locations = [
     },
  
     {
+        id:'alula2',
         name: "Al Ula",
         image: alula,
         description: "The city of picturesque landscapes ",
@@ -54,15 +56,10 @@ const LocationsSection = () => {
 
     {Locations.map((locationobject) => {
         return (
-        <Location to ={'/locations/' + locationobject.name.replace(/\s/g, '').toLowerCase()} onMouseEnter={projectEnter} onMouseLeave={projectLeave} >
+        <Location key={locationobject.id} to ={'/locations/' + locationobject.name.replace(/\s/g, '').toLowerCase()} onMouseEnter={projectEnter} onMouseLeave={projectLeave} >
             
             <LocationImage src={locationobject.image} alt={locationobject.name}/>
-             {/* <LocationName>
-                {Location.name}
-            </LocationName>
-            <LocationDescription>
-                {location.description}
-            </LocationDescription>  */}
+          
 
         </Location>
         )

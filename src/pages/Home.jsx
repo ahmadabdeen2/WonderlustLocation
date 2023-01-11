@@ -18,6 +18,7 @@ const Home = () => {
     window.scrollTo(0,0)
   })
   useLayoutEffect(() => {
+
     const changeBackground = () => {
       const tl = gsap.timeline({
         scrollTrigger: {

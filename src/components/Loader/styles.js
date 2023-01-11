@@ -4,9 +4,8 @@ import { motion } from 'framer-motion'
 export const LoaderMainContainer = styled(motion.div)`
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    /* z-index:101010101010; */
     height: 100vh;
 `
 const spin = keyframes`
@@ -18,11 +17,16 @@ const spin = keyframes`
     }
     `
     export const SpinningTriangle = styled.img`
-
-    width: 34.5vh;
-    height: 30vh;
+    margin-top:10rem;
+    width: 23vh;
+    height: 20vh;
+    @media (min-width: 480px) {
+        width: 34.5vh;
+        height:30vh;
+    }
     
-    animation: ${spin} 10s linear infinite;
+    
+    animation: ${spin} 2s linear infinite;
     /* z-index: -1; */
  
       

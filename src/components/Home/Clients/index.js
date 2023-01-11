@@ -49,7 +49,7 @@ Clients
         <Carousel drag="x" dragConstraints={{right:0, left: -carouselWidth}} onMouseEnter={dragMe} onMouseLeave={dragMeLeave}>
           {clients.map((client) => {
             return (
-              <CarouselInner >
+              <CarouselInner key={client.id}>
             <CarouselImage src={client.image}/>
             <TextLarge>{client.name}</TextLarge>
           </CarouselInner>

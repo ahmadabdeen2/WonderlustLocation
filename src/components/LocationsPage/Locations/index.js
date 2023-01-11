@@ -8,6 +8,7 @@ import {motion} from 'framer-motion'
 import {urlFor, client} from '../../../client'
 import {useLocation} from 'react-router-dom'
 import {Link } from 'react-router-dom'
+import Loader from '../../Loader'
 
 import { CursorContext } from '../../CustomCursor/CursorManager';
 
@@ -38,6 +39,8 @@ const LocationsSection = () => {
     }, [])
 
     return (
+        <>
+        {locationsJSON.length === 0 ? <Loader/> : (
 <LocationContainer
      initial={{opacity: 0, y: 50}}
      whileInView={{opacity: 1, y: 10}}
@@ -75,8 +78,10 @@ const LocationsSection = () => {
 </LocationWrapper>
 
 </LocationContainer>
+        )}
+</>
     )
-   
+
 }
 
 
