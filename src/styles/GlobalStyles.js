@@ -1,16 +1,8 @@
 import {createGlobalStyle } from 'styled-components';
-// import RGSlimBlack from '../fonts/Random/RG-SlimBlack.ttf';
-import RGSlimBook from '../fonts/Random/RG-SlimBook.ttf';
-import RGSpaciousBook from '../fonts/Random/RG-SpaciousBook.ttf';
-// import RGSpaciousBold from '../fonts/Random/RG-SpaciousBold.ttf';
-import RGStandardBook from '../fonts/Random/RG-StandardBook.ttf';
-import RGStandardBold from '../fonts/Random/RG-StandardBold.ttf';
-import RGStandardMedium from '../fonts/Random/RG-StandardMedium.ttf';
-import RGStandardSemibold from '../fonts/Random/RG-StandardSemibold.ttf';
-import MintSansBold from '../fonts/Mint/MintSansBold.otf';
-import MintSansExtraLight from '../fonts/Mint/MintSansExtraLight.otf';
-import MintSansRegular from '../fonts/Mint/MintSansRegular.otf';
 
+import MintSansExtraLight from '../fonts/Mint/MintSansExtraLight.woff';
+import MintSansRegular from '../fonts/Mint/MintSansRegular.woff';
+import MintSansBold from '../fonts/Mint/MintSansBold.woff';
 
 
 export const GlobalStyle = createGlobalStyle`
@@ -26,65 +18,24 @@ export const GlobalStyle = createGlobalStyle`
 }
 
 
-@font-face {
-    font-family: 'RGSlimBook';
-    src: url(${RGSlimBook}) format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'RGSpaciousBook';
-    src: url(${RGSpaciousBook}) format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'RGStandardBook';
-    src: url(${RGStandardBook}) format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'RGStandardBold';
-    src: url(${RGStandardBold}) format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'RGStandardMedium';
-    src: url(${RGStandardMedium}) format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'RGStandardSemibold';
-    src: url(${RGStandardSemibold}) format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
 
 @font-face {
     font-family: 'MintSansBold';
-    src: url(${MintSansBold}) format('opentype');
+    src: url(${MintSansBold}) format('woff');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'MintSansExtraLight';
-    src: url(${MintSansExtraLight}) format('opentype');
+    src: url(${MintSansExtraLight}) format('woff');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'MintSansRegular';
-    src: url(${MintSansRegular}) format('opentype');
+    src: url(${MintSansRegular}) format('woff');
     font-weight: normal;
     font-style: normal;
 }
