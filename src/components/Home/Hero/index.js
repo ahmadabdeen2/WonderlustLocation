@@ -1,6 +1,6 @@
 import React from 'react'
-import {HeroContainer, MainTextContainer, Heading, Description, Arrow, Triangle, Triangle2, Underline, SpinningTriangle, HeroSubContainer} from './styles'
-import {arrow, arrow2, homescreenhero, earth} from '../../../assets'
+import {HeroContainer, MainTextContainer, Heading, Description, Arrow, Underline,  HeroSubContainer} from './styles'
+import {arrow} from '../../../assets'
 
 
 
@@ -17,11 +17,8 @@ const Hero = () => {
 based in <Underline> Riyadh, Saudi Arabia. </Underline>
 </Heading>
 </MainTextContainer>
-{/* <SpinningTriangle src={earth} alt="triangle"/> */}
 </HeroSubContainer>
 <Arrow src={arrow} alt="arrow"/>
-{/* <Triangle2/> */}
-{/* <Triangle/> */}
     </HeroContainer>
 </>
   )

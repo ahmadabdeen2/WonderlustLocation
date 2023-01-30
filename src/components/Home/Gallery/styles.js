@@ -215,7 +215,6 @@ export const GalleryWrapper = styled(motion.div)`
   grid-template-columns: 1fr;
   grid-row-gap: 1rem;
   width: 100%;
-  /* padding-bottom: 2rem; */
   @media (min-width: 768px) {
     grid-template-columns: 1fr 1fr;
     padding-bottom: 2rem;
@@ -227,8 +226,6 @@ export const Galleries = styled(Link)`
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  /* margin-bottom: 1rem; */
-  /* border-bottom: 4px solid var(--green); */
   cursor: pointer;
   text-decoration: none;
 

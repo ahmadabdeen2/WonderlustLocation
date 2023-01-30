@@ -8,9 +8,6 @@ display: flex;
     align-items: center;
     padding: 0 1rem;
     height: 80vh;
-
-
-    /* position: relative; */
     @media (min-width: 480px){
         padding: 0 2rem;
     }
@@ -33,7 +30,7 @@ font-size: 1rem;
 color: var(--black);
 position: relative;
 width: 75%;
-/* text-align: center; */
+
 
 @media (min-width: 480px){
     font-size: 1.2rem;

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {homescreenhero, earth, symbol} from '../../../assets'
+import { earth} from '../../../assets'
 import {keyframes} from 'styled-components'
 export const HeroContainer = styled.div`
 /* height:80vh; */
@@ -22,32 +22,6 @@ background-repeat: no-repeat;
 
 `
 
-const spin = keyframes`
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-    `
-
-
-    export const SpinningTriangle = styled.img`
-    /* position: absolute; */
-  
-    width: 80%;
-    height: 80%;
-    /* margin-right: 10rem; */
-    /* transform: translate(-50%, -50%); */
-    
-    /* animation: ${spin} 10s linear infinite; */
-    z-index: -10;
-    /* flex: 0.5; */
-    /* position: absolute; */
-    
-      
-        `
-
 
 
 export const MainTextContainer = styled.div`
@@ -60,7 +34,6 @@ flex-direction: column;
 justify-content: center;
 align-items: flex-start;
 padding: 0 1rem;
-/* flex: 1; */
 @media (min-width: 480px){
     padding: 0 2rem;
 
@@ -151,39 +124,6 @@ align-self: center;
     width: 70px;
     height: 70px;
 
-}
-
-`
-
-export const Triangle = styled.div`
-clip-path: polygon(0 100%, 100% 0%, 0% 0);
-width: 30vh;
-height: 20vh;
-background-color: #1e1e1e;
-position: absolute;
-top: 0%;
-left: 0;
-opacity: 1;
-z-index: -1;
-@media (min-width: 768px){
-    width: 40vh;
-    height: 30vh;
-}
-
-`
-
-export const Triangle2 = styled.div`
-clip-path: polygon(0 100%, 100% 100%, 100% 0);
-width: 30vh;
-height: 40vh;
-background-color: var(--green);
-position: absolute;
-bottom: 0%;
-right: 0;
-z-index: -1;
-@media (min-width: 768px){
-    width: 40vh;
-    height: 50vh;
 }
 
 `
