@@ -4,6 +4,7 @@ import MintSansExtraLight from '../fonts/Mint/MintSansExtraLight.woff';
 import MintSansRegular from '../fonts/Mint/MintSansRegular.woff';
 import MintSansBold from '../fonts/Mint/MintSansBold.woff';
 
+console.log(MintSansExtraLight)
 
 export const GlobalStyle = createGlobalStyle`
 *{
