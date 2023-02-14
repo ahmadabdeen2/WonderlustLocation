@@ -27,7 +27,7 @@ display: flex;
 export const Text = styled.p`
 font-family: var(--fontbook);
 font-size: 1rem;
-color: var(--black);
+color: var(--greydark);
 position: relative;
 width: 75%;
 
@@ -76,7 +76,7 @@ z-index: 0;
 export const ReadMore = styled(Link)`
 font-family: var(--fontbook);
 font-size: 2.5rem;
-color: var(--black);
+color: var(--greydark);
 position: relative;
 width: 75%;
 text-decoration: none;

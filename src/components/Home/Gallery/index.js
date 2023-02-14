@@ -14,21 +14,43 @@ import { CursorContext } from "../../CustomCursor/CursorManager";
 import {ink} from '../../../assets/'
 const isMobile = window.innerWidth < 768;
 
+const initial = [
+  {
+    id: 1,
+    title: "Video 1",
+    videourl: 'https://vimeo.com/762560153',
+  },
+  {
+    id: 2,
+    title: "Video 2",
+    videourl: 'https://vimeo.com/762560153',
+  },
+  {
+    id: 3,
+    title: "Video 3",
+    videourl: 'https://vimeo.com/762560153',
+  }
+]
+
 const Gallery = (props) => {
   const [gallery, setGallery] = useState([]);
   const getVideos = async () => {
     let query = '*[_type == "video"]{_id, title, videourl}';
-    const data = await client.fetch(query);
-    setGallery(data);
+    await client.fetch(query).then((res) => {
+      setGallery(res);
+    }).then(() => {
+    setCarouselWidth(measuredRef.current.scrollWidth - window.innerWidth)
+    console.log(measuredRef.current.scrollWidth - window.innerWidth)
+    })
+  
     return measuredRef.current.scrollWidth - window.innerWidth;
   };
 
 
   useEffect(() => {
     async function fetchData(){
-      const scroll = await getVideos()
-      setCarouselWidth(scroll)
- 
+      await getVideos()
+
 
 
     }
@@ -56,7 +78,7 @@ const Gallery = (props) => {
           onMouseEnter={dragMe}
           onMouseLeave={dragMeLeave}
         >
-          {gallery.length !== 0 && gallery.map((video) => {
+          {(gallery || initial).map((video) => {
             return (
               <CarouselInner key={client.id}>
                 <CarouselVideo
