@@ -28,6 +28,7 @@ const Gallery = (props) => {
     getVideos().then(() => {
       setCarouselWidth(measuredRef.current.scrollWidth - window.innerWidth);
     });
+    console.log(carouselWidth)
   }, []);
 
   const { dragMe, dragMeLeave } = React.useContext(CursorContext);
