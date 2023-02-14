@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect, useRef } from "react";
+import React, { useState, useCallback, useEffect, useRef, useLayoutEffect } from "react";
 import {
   ClientContainer,
   HeaderText,
@@ -38,12 +38,13 @@ const Gallery = (props) => {
     let query = '*[_type == "video"]{_id, title, videourl}';
     await client.fetch(query).then((res) => {
       setGallery(res);
-    }).then(() => {
-    setCarouselWidth(measuredRef.current.scrollWidth - window.innerWidth)
-    console.log('full',measuredRef.current.scrollWidth - window.innerWidth)
-    console.log('scroll',measuredRef.current.scrollWidth)
-    console.log('inner', window.innerWidth)
-    })
+    });
+    // }).then(() => {
+    // setCarouselWidth(measuredRef.current.scrollWidth - window.innerWidth)
+    // console.log('full',measuredRef.current.scrollWidth - window.innerWidth)
+    // console.log('scroll',measuredRef.current.scrollWidth)
+    // console.log('inner', window.innerWidth)
+    // })
   
     return measuredRef.current.scrollWidth - window.innerWidth;
   };
@@ -52,12 +53,17 @@ const Gallery = (props) => {
   useEffect(() => {
     async function fetchData(){
       await getVideos()
-
-
-
     }
     fetchData()
   }, []);
+
+  // update carousel width after render
+  useLayoutEffect(() => {
+    setCarouselWidth(measuredRef.current.scrollWidth - window.innerWidth)
+  }, [gallery])
+  
+
+ 
 
   const { dragMe, dragMeLeave } = React.useContext(CursorContext);
   const [carouselWidth, setCarouselWidth] = useState(0);
