@@ -65,26 +65,38 @@ export const OurTeam = styled.a`
 `;
 export const OurTeamImage = styled.img`
   width: 100%;
-  height: clamp(400px, 500px, 700px);
+  height: clamp(400px, 650px, 800px);
   object-fit: cover;
   margin-bottom: 1rem;
+  object-position: top;
 
   transition: 0.3s all ease-in-out;
   &:hover {
     filter: brightness(0.5);
-    transform: zoom(200%);
+    /* transform: zoom(200%); */
   }
 
   @media (min-width: 768px) {
     margin-bottom: 2rem;
   }
 `;
-export const OurTeamName = styled.h1`
+export const OurTeamName = styled.h2`
   font-family: var(--fontregular);
   font-size: clamp(1.2rem, 1.5rem, 1.8rem);
   font-weight: 700;
   padding-left: 0.1rem;
   color: var(--white);
+  text-align: left;
+
+`;
+
+export const OurTeamPosition = styled.p`
+  font-family: var(--fontregular);
+  font-size: clamp(0.9rem, 1.1rem, 1.4rem);
+  font-weight: 400;
+  margin-top:0.5rem;
+  padding-left: 0.1rem;
+  color: var(--green);
   text-align: left;
 
 `;
@@ -102,5 +114,15 @@ export const OurTeamsHeader = styled(motion.div)`
 
 `
 
+
+export const OurTeamDetails = styled.div`
+display:flex;
+flex-direction:column;
+justify-content: flex-start;
+align-items: flex-start;
+
+
+
+`
 
 

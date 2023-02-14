@@ -23,6 +23,7 @@ const Gallery = (props) => {
     console.log(gallery);
   };
 
+
   useEffect(() => {
     getVideos().then(() => {
       setCarouselWidth(measuredRef.current.scrollWidth - window.innerWidth);
@@ -50,11 +51,11 @@ const Gallery = (props) => {
           onMouseEnter={dragMe}
           onMouseLeave={dragMeLeave}
         >
-          {gallery.map((video) => {
+          {gallery.length !== 0 && gallery.map((video) => {
             return (
               <CarouselInner key={client.id}>
                 <CarouselVideo
-                  url={video.videourl || ink}
+                  url={video.videourl }
                   controls={true}
                   width={isMobile ? '90vw' : 640}
                   height={isMobile ? 200 : 360}

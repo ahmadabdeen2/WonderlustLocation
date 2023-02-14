@@ -1,40 +1,29 @@
-import React, {useLayoutEffect} from 'react'
+import React, {useState, useEffect} from 'react'
+import {client, urlFor} from '../../../client'
 
+import {OurTeamContainer, HeaderText, OurTeamPosition, OurTeamDetails, OurTeamWrapper, OurTeam, OurTeamImage, OurTeamName,  OurTeamsHeader} from './styles'
 
-import {OurTeamContainer, HeaderText, OurTeamWrapper, OurTeam, OurTeamImage, OurTeamName,  OurTeamsHeader} from './styles'
-
-import {member1, member2, member3, member4} from '../../../assets'
 import {motion} from 'framer-motion'
 
 
 import { CursorContext } from '../../CustomCursor/CursorManager';
 
-const OurTeamArray = [
-    {
-        name: "Sergio Smith",
-        image: member1,
-        email: "mailto:sergiosmith@wonderlust-la.com"
-    },
- 
-    {
-        name: "Jordan Ibe",
-        image: member2,
-        email: "mailto:sergiosmith@wonderlust-la.com"
-    },
-    {
-        name: "Matthew Rafi",
-        image: member3,
-        email: "mailto:sergiosmith@wonderlust-la.com"
-    },
-    {
-        name: "Mira Ramos",
-        image: member4,
-        email: "mailto:sergiosmith@wonderlust-la.com"
-    },
 
-]
+
 const OurTeamComponent = () => {
-    const {setCursorVariant, setCursorText, memberEnter, memberLeave} = React.useContext(CursorContext)
+    const [teamMembers, setTeamMembers] = useState([])
+
+    const getTeamMembers = async () => {
+        let query = '*[_type == "team"]'
+        let data = await client.fetch(query)
+        setTeamMembers(data)
+        console.log(data)
+    }
+
+    useEffect(() => {
+        getTeamMembers()
+    }, [])
+    const { memberEnter, memberLeave} = React.useContext(CursorContext)
 
     return (
 <OurTeamContainer
@@ -52,13 +41,15 @@ const OurTeamComponent = () => {
     >
    
 
-    {OurTeamArray.map((member) => {
+    {teamMembers.map((member) => {
         return (
         <OurTeam href={member.email} onMouseEnter={memberEnter} onMouseLeave={memberLeave} >
             
-            <OurTeamImage src={member.image} alt={member.name}/>
+            <OurTeamImage src={urlFor(member.image).url()} alt={member.name}/>
+            <OurTeamDetails>
             <OurTeamName>{member.name}</OurTeamName>
-     
+            <OurTeamPosition>{member.position}</OurTeamPosition>
+            </OurTeamDetails>
         </OurTeam>
         )
     })}
