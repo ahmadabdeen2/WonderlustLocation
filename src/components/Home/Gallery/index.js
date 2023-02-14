@@ -40,7 +40,9 @@ const Gallery = (props) => {
       setGallery(res);
     }).then(() => {
     setCarouselWidth(measuredRef.current.scrollWidth - window.innerWidth)
-    console.log(measuredRef.current.scrollWidth - window.innerWidth)
+    console.log('full',measuredRef.current.scrollWidth - window.innerWidth)
+    console.log('scroll',measuredRef.current.scrollWidth)
+    console.log('inner', window.innerWidth)
     })
   
     return measuredRef.current.scrollWidth - window.innerWidth;
