@@ -10,7 +10,8 @@ import {
   LocationsHeaderContainer,
   Heading,
   NoneFound,
-  ShowMoreButton
+  ShowMoreButton,
+  NoMoreLocations
 } from "./styles";
 
 import { urlFor, client } from "../../../client";
@@ -37,6 +38,10 @@ const LocationsSection = (props) => {
  const getLocationsAndPopulateCategories = async () => {
    let query;
    let data;
+   if (page > allLocations.length){
+      setReachedEnd(true);
+      return;
+    }
   if (page === 0){
     query = `*[_type == "location"]{_id,locationname, slug, thumbnail, city->{name},locationcategory->{categoryname}}[0...2]`;
     setTitle("Our Locations");
@@ -52,9 +57,6 @@ const LocationsSection = (props) => {
     setPage(page+2);
   }
     const categoriesPre = data.map((location) => location.locationcategory.categoryname)
-    
-    // add previous categories to the new categories without duplicates
-    // const uniqueCategories = [...new Set(categoriesPre)];
     const prevCategories = categories;
     const newCategories = [...new Set(categoriesPre)];
     const allCategories = prevCategories.concat(newCategories);
@@ -186,11 +188,17 @@ const handleActiveCityAndCategory = (city, category) => {
             })}
           </LocationWrapper>
       )}
-      {!reachedEnd && (
+      {!reachedEnd ? (
       <ShowMoreButton onClick={getLocationsAndPopulateCategories}>
         Show More
       </ShowMoreButton>
-      )}
+      ) :
+      <NoMoreLocations>
+        No More Locations
+      </NoMoreLocations>
+
+    
+    }
         </LocationContainer>
     </>
   );

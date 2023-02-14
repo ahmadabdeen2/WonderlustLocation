@@ -232,3 +232,15 @@ export const ShowMoreButton = styled(motion.button)`
     transition: 0.3s all ease-in-out;
     `
 
+
+
+export const NoMoreLocations = styled.div`
+margin-top: 2rem;
+font-family: var(--fontbook);
+font-size: 1.2rem;
+color: var(--white);
+text-align: center;
+display: flex;
+justify-content: center;
+align-items: center;`
+

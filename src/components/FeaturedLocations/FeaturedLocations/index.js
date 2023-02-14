@@ -10,7 +10,8 @@ import {
   LocationsHeaderContainer,
   Heading,
   NoneFound,
-  ShowMoreButton
+  ShowMoreButton,
+  NoMoreLocations
 } from "./styles";
 
 import { urlFor, client } from "../../../client";
@@ -37,14 +38,21 @@ const FeaturedLocationsSection = () => {
  const getLocationsAndPopulateCategories = async () => {
    let query;
    let data;
+
+   if (page > allLocations.length){
+    setReachedEnd(true);
+    return;
+  }
   if (page === 0){
    
     const query = `*[_type == "locationsclient" && slug.current match '${pathname}']{clientname, location[]->{..., city->{name}, locationcategory->{categoryname}}}[0...10]`
-    setTitle("Our Locations");
+    
     data = await client.fetch(query);
     setAllLocations(data[0].location);
     setLocationsJSON(data[0].location) 
     setPage(page+10);
+    let clientname = data[0].clientname
+    setTitle(`Locations for ${clientname[0].toLocaleUpperCase() + clientname.slice(1)}`);
   } else {
     const query = `*[_type == "locationsclient" && slug.current match '${pathname}']{clientname, location[]->{..., city->{name}, locationcategory->{categoryname}}}[${page}...${page+10}]`
     data = await client.fetch(query);
@@ -183,11 +191,16 @@ const handleActiveCityAndCategory = (city, category) => {
             })}
           </LocationWrapper>
       )}
-      {!reachedEnd && (
+      {!reachedEnd ? (
       <ShowMoreButton onClick={getLocationsAndPopulateCategories}>
         Show More
       </ShowMoreButton>
-      )}
+      ) : 
+      <NoMoreLocations>
+        No More Locations
+      </NoMoreLocations>
+    
+    }
         </LocationContainer>
     </>
   );
