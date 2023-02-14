@@ -20,15 +20,19 @@ const Gallery = (props) => {
     let query = '*[_type == "video"]{_id, title, videourl}';
     const data = await client.fetch(query);
     setGallery(data);
-    console.log(gallery);
+    return measuredRef.current.scrollWidth - window.innerWidth;
   };
 
 
   useEffect(() => {
-    getVideos().then(() => {
-      setCarouselWidth(measuredRef.current.scrollWidth - window.innerWidth);
-    });
-    console.log(carouselWidth)
+    async function fetchData(){
+      const scroll = await getVideos()
+      setCarouselWidth(scroll)
+ 
+
+
+    }
+    fetchData()
   }, []);
 
   const { dragMe, dragMeLeave } = React.useContext(CursorContext);
