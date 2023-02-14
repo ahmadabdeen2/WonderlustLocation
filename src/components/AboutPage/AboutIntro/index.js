@@ -1,18 +1,10 @@
 import React, {useRef} from "react";
-import { AboutIntroContainer, Description, Text , TextContainer, Triangle, ReadMore} from "./styles";
-import { Link } from 'react-router-dom';
-import {cameraShutterSound} from '../../../assets'
+import { AboutIntroContainer, Text , TextContainer} from "./styles";
+
+
 const AboutIntro = () => {
-    const audioRef = useRef(null);
   return (
     <AboutIntroContainer>
-            <audio
-        ref={audioRef}
-        src={cameraShutterSound}
-        
-
-      />
-        {/* <Triangle/> */}
         <TextContainer>
 
       <Text>

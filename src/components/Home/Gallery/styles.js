@@ -77,7 +77,12 @@ export const CarouselImage = styled(LazyLoadImage)`
 `;
 
 export const CarouselVideo = styled(ReactPlayer)`
-
+  width: '90vw';
+  height: 200px;
+  @media (min-width: 768px) {
+    width: 640px;
+    height: 360px;
+  }
     object-fit: cover;
     /* pointer-events: none; */
 

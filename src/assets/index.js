@@ -2,7 +2,6 @@
 import arrow from './icons/arrow.svg'
 import arrow2 from './icons/arrow2.svg'
 import logogreen from './logo/logogreen.svg'
-import cameraShutterSound from './audio/camera-shutter-sound.mp3'
 import dubai from './images/dubai.png'
 import riyadh from './images/riyadh.png'
 import jeddah from './images/jeddah.png'
@@ -31,12 +30,8 @@ import logogreenwhite from './logo/logogreenwhite.svg'
 import logowhite from './logo/logowhite.svg'
 import wonderlustShooting from './images/wonderlust-shooting.png'
 import symbol from './logo/symbol.svg'
-import member1 from './people/member1.jpg'
-import member2 from './people/member2.jpg'
-import member3 from './people/member3.jpg'
-import member4 from './people/member4.jpg'
-import ink from './video/ink.mp4'
-import scuba from './video/scuba.mp4'
-import skate from './video/skate.mp4'
 
-export { arrow, homescreenhero, triangles, logogreen, cameraShutterSound, dubai, riyadh, jeddah, alula,  arrow2,arrowsmall,  project, triangle, earth, twotales,telfaz, takkah, truffle, dreambox, wonderlust, logofulloriginal, logofull, logogreenwhite, logowhite, symbol , wonderlustShooting, member1, member2, member3, member4, prodigious, filmpudding, sofa, dnamedia, needAfixer, alamiya, ink, scuba, skate};
+import ink from './video/ink.mp4'
+
+
+export { arrow, homescreenhero, triangles, logogreen, dubai, riyadh, jeddah, alula,  arrow2,arrowsmall,  project, triangle, earth, twotales,telfaz, takkah, truffle, dreambox, wonderlust, logofulloriginal, logofull, logogreenwhite, logowhite, symbol , wonderlustShooting, prodigious, filmpudding, sofa, dnamedia, needAfixer, alamiya, ink};

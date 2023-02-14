@@ -1,5 +1,5 @@
 import React from 'react'
-import {AboutMainContainer, SpinningTriangle, Triangle, Line, Heading} from './styles'
+import {AboutMainContainer, SpinningTriangle, Heading} from './styles'
 import {triangle} from '../../../assets'
 const AboutMain = () => {
   return (

@@ -97,9 +97,6 @@ transition: all 0.3s ease-in-out;
 
 &:hover{
     color: var(--green);
- 
- /* transform: translateX(1.2rem); */
-
 
 }
 
