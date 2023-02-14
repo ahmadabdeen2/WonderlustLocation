@@ -75,6 +75,22 @@ const Cursor = () => {
      pointerEvents: "none",
      zIndex: 1000000,
     },
+    readmore: {
+      opacity: 1,
+      backgroundColor: "#fff",
+      color: "#000",  
+      height: 80,
+      width: 80,
+      fontSize: "16px",
+      x: mouseX - 32,
+      y: mouseY - 32,
+      borderRadius: "50%",
+      position: "fixed",
+    
+
+     pointerEvents: "none",
+     zIndex: 1000000,
+    },
     drag: {
       opacity: 1,
       backgroundColor: "#28c4a4",

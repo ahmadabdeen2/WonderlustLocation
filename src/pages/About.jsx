@@ -2,6 +2,7 @@ import React, {useLayoutEffect} from 'react'
 import {AboutContainer, PageTransition} from './styles'
 
 import {AboutMain, AboutIntro, HorizontalText, HowWork, OurTeamComponent} from '../components';
+import WhatWeOffer from '../components/AboutPage/WhatWeOffer';
 
 
 
@@ -27,6 +28,7 @@ const About = () => {
         <AboutIntro/>
         <HorizontalText text={"Hello There!"} from={100} to={-300}/>
         <HowWork/>
+        <WhatWeOffer/>
         <OurTeamComponent/>
     </AboutContainer>
     </>

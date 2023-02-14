@@ -13,7 +13,9 @@ export const CursorContext=createContext({
     memberEnter:()=>{},
     memberLeave:()=>{},
     dragMe:()=>{},
-    dragMeLeave:()=>{}
+    dragMeLeave:()=>{},
+    readMoreEnter:()=>{},
+    readMoreLeave:()=>{},
 })
 
 const CursorManager = (props) => {
@@ -51,6 +53,15 @@ const CursorManager = (props) => {
     setCursorVariant("project");
   }
 
+  function readMoreEnter(event) {
+    setCursorText(`Read More`);
+    setCursorVariant("readmore");
+  }
+  function readMoreLeave(event) {
+    setCursorText("");
+    setCursorVariant("default");
+  }
+
 
   function memberLeave(event) {
     setCursorText("");
@@ -69,7 +80,7 @@ const CursorManager = (props) => {
   }
 
   return (
-    <CursorContext.Provider value={{cursorText, setCursorText, cursorVariant, setCursorVariant, projectEnter, projectLeave, ClientEnter, ClientLeave, NavbarEnter, NavbarLeave, memberEnter, memberLeave, dragMe, dragMeLeave}}>{props.children}</CursorContext.Provider>
+    <CursorContext.Provider value={{cursorText, setCursorText, cursorVariant, setCursorVariant, projectEnter, projectLeave, ClientEnter, ClientLeave, NavbarEnter, NavbarLeave, memberEnter, memberLeave, dragMe, dragMeLeave, readMoreEnter, readMoreLeave}}>{props.children}</CursorContext.Provider>
   )
 }
 

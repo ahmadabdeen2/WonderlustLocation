@@ -16,6 +16,7 @@ const OurTeamComponent = () => {
     const getTeamMembers = async () => {
         let query = '*[_type == "team"]'
         let data = await client.fetch(query)
+    
         setTeamMembers(data)
         console.log(data)
     }
@@ -43,7 +44,7 @@ const OurTeamComponent = () => {
 
     {teamMembers.map((member) => {
         return (
-        <OurTeam href={member.email} onMouseEnter={memberEnter} onMouseLeave={memberLeave} >
+        <OurTeam href={"mailto:" + member.email} onMouseEnter={memberEnter} onMouseLeave={memberLeave} >
             
             <OurTeamImage src={urlFor(member.image).url()} alt={member.name}/>
             <OurTeamDetails>

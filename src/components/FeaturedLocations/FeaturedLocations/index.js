@@ -19,7 +19,7 @@ import Loader from "../../Loader";
 import { CursorContext } from "../../CustomCursor/CursorManager";
 
 
-const LocationsSection = (props) => {
+const FeaturedLocationsSection = () => {
   const location = useLocation();
   const { projectEnter, projectLeave } = React.useContext(CursorContext);
   const [locationsJSON, setLocationsJSON] = useState([]);
@@ -33,28 +33,26 @@ const LocationsSection = (props) => {
   const [ActiveCategory, setActiveCategory] = useState("All");
   const [page, setPage] = useState(0);
   const pathname = location.pathname.split("/")[2];
-
+  console.log(pathname)
  const getLocationsAndPopulateCategories = async () => {
    let query;
    let data;
   if (page === 0){
-    query = `*[_type == "location"]{_id,locationname, slug, thumbnail, city->{name},locationcategory->{categoryname}}[0...2]`;
+   
+    const query = `*[_type == "locationsclient" && slug.current match '${pathname}']{clientname, location[]->{..., city->{name}, locationcategory->{categoryname}}}[0...10]`
     setTitle("Our Locations");
     data = await client.fetch(query);
-    setAllLocations(data);
-    setLocationsJSON(data);
-    setPage(page+2);
+    setAllLocations(data[0].location);
+    setLocationsJSON(data[0].location) 
+    setPage(page+10);
   } else {
-    query = `*[_type == "location"]{_id,locationname, slug, thumbnail, city->{name},locationcategory->{categoryname}}[${page}...${page+2}]`;
+    const query = `*[_type == "locationsclient" && slug.current match '${pathname}']{clientname, location[]->{..., city->{name}, locationcategory->{categoryname}}}[${page}...${page+10}]`
     data = await client.fetch(query);
     setAllLocations(prevState => prevState.concat(data));
     setLocationsJSON(prevState => prevState.concat(data));
     setPage(page+2);
   }
-    const categoriesPre = data.map((location) => location.locationcategory.categoryname)
-    
-    // add previous categories to the new categories without duplicates
-    // const uniqueCategories = [...new Set(categoriesPre)];
+    const categoriesPre = data[0].location.map((location) => location.locationcategory.categoryname)
     const prevCategories = categories;
     const newCategories = [...new Set(categoriesPre)];
     const allCategories = prevCategories.concat(newCategories);
@@ -63,8 +61,7 @@ const LocationsSection = (props) => {
     uniqueCategories.unshift('All');
     }
     setCategories(uniqueCategories);
-    const citiesPre = data.map((location) => location.city.name)
-
+    const citiesPre = data[0].location.map((location) => location.city.name)
     const prevCities = cities;
     const newCities = [...new Set(citiesPre)];
     const allCities = prevCities.concat(newCities);
@@ -196,4 +193,4 @@ const handleActiveCityAndCategory = (city, category) => {
   );
 };
 
-export default LocationsSection;
+export default FeaturedLocationsSection;

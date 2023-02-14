@@ -43,7 +43,9 @@ const LocationsSection = () => {
     <HeaderText>
         Locations
     </HeaderText>
-    <ViewAll>
+    <ViewAll to={
+        '/locations'
+    }>
         View All
     </ViewAll>
     </LocationsHeader>
