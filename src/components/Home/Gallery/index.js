@@ -11,7 +11,7 @@ import {
 } from "./styles";
 import { client } from "../../../client";
 import { CursorContext } from "../../CustomCursor/CursorManager";
-
+import {ink} from '../../../assets/'
 const isMobile = window.innerWidth < 768;
 
 const Gallery = (props) => {
@@ -54,7 +54,7 @@ const Gallery = (props) => {
             return (
               <CarouselInner key={client.id}>
                 <CarouselVideo
-                  url={video.videourl}
+                  url={video.videourl || ink}
                   controls={true}
                   width={isMobile ? '90vw' : 640}
                   height={isMobile ? 200 : 360}

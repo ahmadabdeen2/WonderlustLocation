@@ -39,4 +39,4 @@ import ink from './video/ink.mp4'
 import scuba from './video/scuba.mp4'
 import skate from './video/skate.mp4'
 
-export { arrow, homescreenhero,   triangles, logogreen, cameraShutterSound, dubai, riyadh, jeddah, alula,  arrow2,arrowsmall,  project, triangle, earth, twotales,telfaz, takkah, truffle, dreambox, wonderlust, logofulloriginal, logofull, logogreenwhite, logowhite, symbol , wonderlustShooting, member1, member2, member3, member4, prodigious, filmpudding, sofa, dnamedia, needAfixer, alamiya, ink, scuba, skate};
+export { arrow, homescreenhero, triangles, logogreen, cameraShutterSound, dubai, riyadh, jeddah, alula,  arrow2,arrowsmall,  project, triangle, earth, twotales,telfaz, takkah, truffle, dreambox, wonderlust, logofulloriginal, logofull, logogreenwhite, logowhite, symbol , wonderlustShooting, member1, member2, member3, member4, prodigious, filmpudding, sofa, dnamedia, needAfixer, alamiya, ink, scuba, skate};
