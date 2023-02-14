@@ -25,7 +25,8 @@ return () => window.removeEventListener("load",handleLoading);
 
   
 
-  return !isLoading ? (
+  return (
+    
 
     <div className='App'>
 
@@ -36,8 +37,8 @@ return () => window.removeEventListener("load",handleLoading);
     </MenuManager>
 </CursorManager>
     </div>
-
-  ) : (<Loader/>)
+  )
+  // ) : (<Loader/>)
 }
 
 export default App;

@@ -84,8 +84,8 @@ const Home = () => {
           <AboutSection className='about' />
           <LocationsSection />
           <HorizontalText text={"Wonderlust."} from={-200} to={200}/>
-          <Gallery/>
           <Clients />
+          <Gallery/>
         </HomeContainer>
       </>
   );

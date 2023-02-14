@@ -1,61 +1,70 @@
-import React from "react";
+import React, { useState, useCallback, useEffect, useRef } from "react";
 import {
   ClientContainer,
-  GalleryWrapper,
-  Galleries,
-  GalleryVideo,
   HeaderText,
+  TextLarge,
+  CarouselContainer,
+  Carousel,
+  CarouselInner,
+  CarouselVideo,
+  DraggableLine,
 } from "./styles";
-
+import { client } from "../../../client";
 import { CursorContext } from "../../CustomCursor/CursorManager";
 
-import { skate, ink, scuba } from "../../../assets";
-const GalleryList = [
-  {
-    id: 1,
-    video: skate,
-  },
+const isMobile = window.innerWidth < 768;
 
-  {
-    id: 2,
-    video: ink,
-  },
-  {
-    id: 3,
-    video: scuba,
-  },
-];
 const Gallery = (props) => {
-  const { projectEnter, projectLeave } = React.useContext(CursorContext);
+  const [gallery, setGallery] = useState([]);
+  const getVideos = async () => {
+    let query = '*[_type == "video"]{_id, title, videourl}';
+    const data = await client.fetch(query);
+    setGallery(data);
+    console.log(gallery);
+  };
+
+  useEffect(() => {
+    getVideos().then(() => {
+      setCarouselWidth(measuredRef.current.scrollWidth - window.innerWidth);
+    });
+  }, []);
+
+  const { dragMe, dragMeLeave } = React.useContext(CursorContext);
+  const [carouselWidth, setCarouselWidth] = useState(0);
+
+  const measuredRef = useRef(null);
 
   return (
     <ClientContainer
-      className="clients"
+      className="client"
       initial={{ y: 50, opacity: 0 }}
       whileInView={{ y: 0, opacity: 1 }}
       transition={{ duration: 1 }}
       viewport={{ once: true }}
     >
       <HeaderText>Gallery</HeaderText>
-      <GalleryWrapper>
-        {GalleryList.map((Galleryobject) => {
-          return (
-            <Galleries
-              key={Galleryobject.id}
-              onMouseEnter={projectEnter}
-              onMouseLeave={projectLeave}
-            >
-              <GalleryVideo
-                src={Galleryobject.video}
-                autoPlay
-                loop
-                muted
-                type="video/mp4"
-              />
-            </Galleries>
-          );
-        })}
-      </GalleryWrapper>
+      <CarouselContainer ref={measuredRef}>
+        <Carousel
+          drag={isMobile ? false : 'x'}
+          dragConstraints={{ right: 0, left: -carouselWidth }}
+          onMouseEnter={dragMe}
+          onMouseLeave={dragMeLeave}
+        >
+          {gallery.map((video) => {
+            return (
+              <CarouselInner key={client.id}>
+                <CarouselVideo
+                  url={video.videourl}
+                  controls={true}
+                  width={isMobile ? '90vw' : 640}
+                  height={isMobile ? 200 : 360}
+                />
+                <TextLarge>{video.title}</TextLarge>
+              </CarouselInner>
+            );
+          })}
+        </Carousel>
+      </CarouselContainer>
     </ClientContainer>
   );
 };

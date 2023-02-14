@@ -52,8 +52,8 @@ export const Carousel = styled(motion.div)`
 `;
 
 export const CarouselInner = styled(motion.div)`
-  width: 60vw;
-  aspect-ratio: 1/1;
+  width: 70vw;
+  /* aspect-ratio: 1/1; */
   padding-right: 1rem;
 
   @media (min-width: 480px) {

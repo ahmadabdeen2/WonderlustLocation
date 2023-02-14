@@ -18,7 +18,7 @@ const MenuLinks = [
     {
         id: 'LocationsLink',
         title:'Locations',
-        path:'/locations/featuredlocations'
+        path:'/locations'
     },
     {
         id: 'ContactLink',

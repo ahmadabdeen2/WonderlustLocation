@@ -13,6 +13,7 @@ const Locations = [
     {
         id:'riyadh1',
         name: "Riyadh",
+        slug: "riyadh",
         image: riyadh,
         description: "Saudi Arabia's capital and largest city",
         
@@ -21,6 +22,7 @@ const Locations = [
     {
         id:'alula2',
         name: "Al Ula",
+        slug: "alula",
         image: alula,
         description: "The city of picturesque landscapes ",
         linkto:'/locations/alula'
@@ -28,8 +30,7 @@ const Locations = [
 
 ]
 const LocationsSection = () => {
-    const {setCursorVariant, setCursorText, projectEnter, projectLeave} = React.useContext(CursorContext)
-
+    const {projectEnter, projectLeave} = React.useContext(CursorContext)
     return (
 <LocationContainer
      initial={{opacity: 0, y: 50}}
@@ -46,17 +47,13 @@ const LocationsSection = () => {
         View All
     </ViewAll>
     </LocationsHeader>
-    <LocationWrapper
-
-    
-
-    
+    <LocationWrapper    
     >
    
 
     {Locations.map((locationobject) => {
         return (
-        <Location key={locationobject.id} to ={'/locations/' + locationobject.name.replace(/\s/g, '').toLowerCase()} onMouseEnter={projectEnter} onMouseLeave={projectLeave} >
+        <Location key={locationobject.id} to ={{pathname:'/locations', city:locationobject.slug}} onMouseEnter={projectEnter} onMouseLeave={projectLeave} >
             
             <LocationImage src={locationobject.image} alt={locationobject.name}/>
           

@@ -70,8 +70,8 @@ const SingleLocationComponent = () => {
   const getLocations = async () => {
     const query = `*[_type == "location" && _id == '${pathname}']`;
     const data = await client.fetch(query);
-
     setLocationsJSON(data);
+    console.log(data);
   };
   useEffect(() => {
     getLocations();
@@ -92,14 +92,15 @@ const SingleLocationComponent = () => {
             <Description>{locationsJSON[0]?.locationdescription}</Description>
             <Details>
               <DetailsText>
-                Location Size: {locationsJSON[0]?.locationsize}
+                Location Dimensions: {locationsJSON[0]?.locationdimension}
               </DetailsText>
               <DetailsText>
-                Location Address: {locationsJSON[0]?.locationaddress}
+                Location Direction: {locationsJSON[0]?.locationdirection}
               </DetailsText>
             </Details>
           </DescriptionContainer>
-
+        {locationsJSON[0]?.morningImages?.length !== 0 && (
+          <>
           <Container>
             <HeaderText>Location Morning Images</HeaderText>
           </Container>
@@ -127,6 +128,7 @@ const SingleLocationComponent = () => {
               })}
             </Carousel>
           </CarouselContainer>
+       
           {morningFullScreen && (
             <>
               <FullScreenCarouselContainer
@@ -162,7 +164,10 @@ const SingleLocationComponent = () => {
               </FullScreenCarouselContainer>
             </>
           )}
-
+   </>
+        )}
+   {locationsJSON[0]?.nightImages && (
+          <>
           <Container>
             <HeaderText>Location Night Images</HeaderText>
           </Container>
@@ -221,6 +226,8 @@ const SingleLocationComponent = () => {
                   })}
                 </FullScreenCarousel>
               </FullScreenCarouselContainer>
+              </>
+          )}
             </>
           )}
         </SingleLocationContainer>

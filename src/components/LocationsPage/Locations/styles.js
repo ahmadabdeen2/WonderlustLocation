@@ -137,20 +137,14 @@ export const LocationsHeader = styled(motion.div)`
 
 export const LocationsHeaderContainer = styled.div`
     display: flex;
+    width: 100%;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    padding: 0 1rem;
-    height: 60vh;
+    align-items: flex-start;
+    padding: 10rem 0 0 0; 
+    
 
-    /* position: relative; */
-    @media (min-width: 480px){
-        padding: 0 2rem;
-    }
-    @media (min-width: 768px){
-        padding: 0 3rem;
-        height:70vh;
-    }
+
     `
 
 
@@ -158,12 +152,64 @@ export const LocationsHeaderContainer = styled.div`
 
 export const Heading = styled.h2`
 font-family: var(--fontbook);
-font-size: clamp(1.6rem, 4vw, 5rem);
+font-size: clamp(1.3rem, 3vw, 4rem);
 color: var(--white);
 z-index: 10;
-margin-bottom: 0;
 
 
+
+
+
+`
+
+export const CategoryChip = styled(motion.div)`
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    background-color: var(--white);
+    color: var(--black);
+    font-size: 0.7rem;
+    font-weight: 400;
+    margin-top: 1rem;
+    margin-right: 1rem;
+    cursor: pointer;
+    transition: 0.3s all ease-in-out;
+    &:hover {
+        background-color: var(--black);
+        color: var(--white);
+    }
+    &.active {
+        background-color: var(--green);
+        color: var(--white);
+    }
+
+
+`
+
+export const CategoryContainer = styled(motion.div)`
+  display: flex;
+  justify-content:flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  /* margin-top: 2rem; */
+  width: 100%;
+  /* padding: 0 1rem; */
+  `
+
+
+export const NoneFound = styled.div`
+margin-top: 2rem;
+font-family: var(--fontbook);
+font-size: 1.2rem;
+color: var(--white);
+text-align: center;
+display: flex;
+justify-content: center;
+align-items: center;
+height: 50vh;
 
 
 `

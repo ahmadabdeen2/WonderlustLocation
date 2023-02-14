@@ -59,7 +59,7 @@ export const DescriptionContainer = styled.div`
 display:flex;
 flex-direction:column;
 align-items: flex-start;
-
+width: 100vw;
 margin-top:2rem;
 padding: 0 1rem;
 @media (min-width: 480px) {
