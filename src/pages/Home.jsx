@@ -85,7 +85,7 @@ const Home = () => {
           <LocationsSection />
           <HorizontalText text={"Wonderlust."} from={-200} to={200}/>
           <Clients />
-          <Gallery/>
+          {/* <Gallery/> */}
         </HomeContainer>
       </>
   );
